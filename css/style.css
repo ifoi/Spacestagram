@@ -1,0 +1,15 @@
+.like {
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 2%;
+  right: 2%;
+}
+
+.dislike {
+  background: url("./img/dislike.svg") no-repeat;
+}
+
+.liked {
+  background: url("./img/like.svg") no-repeat;
+}
