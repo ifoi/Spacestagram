@@ -1,4 +1,4 @@
-// import {config} from "./config"
+// Loading images from nasa api   aka  SpaceStagram
 
 const URL = "https://api.nasa.gov/planetary/apod?api_key="
 const API_KEY = config.NASA_API_KEY
@@ -11,7 +11,7 @@ let nextImageBtn = document.getElementById("nextImageBtn") ;
  })
 
  // add likes listener after Dom is loaded .
- document.addEventListener( "DOMContentLoaded", addLikes )
+ // document.addEventListener( "DOMContentLoaded", addLikes )
 
 // Get image  Data from nasa
 async function getImageData() {
@@ -35,8 +35,8 @@ function displayImage(data) {
 //   const card = document.getElementById("cardImage") ;
 //    card.src = data.url ;
 //    card.alt = data.title ;
-
    creatCard(data)
+   addLikes()
 } 
 
 //  builds out each Card component using bootstrap 
@@ -56,7 +56,12 @@ function creatCard(images) {
              picture.classList.add("card-img-top")
              picture.alt = `${image.media_type} : ${image.title}`
           picture.src = image.url
-          card.appendChild(picture)  
+          card.appendChild(picture) 
+
+          const like = document.createElement("div")
+          like.classList.add("like", "dislike")
+ 
+          card.appendChild(like)
 
         const cardBody = document.createElement("div") ;
         const title = document.createElement("h5") ;
@@ -72,9 +77,6 @@ function creatCard(images) {
 
          card.appendChild(cardBody)
        
-         const like = document.createElement("div")
-         like.classList.add("like", "dislike")
-
          container.appendChild(card) 
 
 
@@ -86,7 +88,18 @@ function creatCard(images) {
 
 //parse image objects
 
-//Add Likes
+//Add Like event listener
 function addLikes() {
-  const likes = document.querySelectorAll("".likes") 
+   console.log("Entered addLikes")
+  const likes = document.querySelectorAll(".like") ;
+  
+    likes.forEach(like => {
+        like.addEventListener("click", (e) => {
+            e.target.classList.toggle("liked");
+            e.target.classList.toggle("dislike");
+
+          })
+
+
+  })
 }
