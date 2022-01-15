@@ -76,7 +76,11 @@ function creatCard(images) {
               cardBody.appendChild(cardText)
 
          card.appendChild(cardBody)
-       
+
+         const shareBtns = document.createElement("div") ;
+                shareBtns.innerHTML = addShareBtns(image.url) 
+         card.appendChild(shareBtns) ;
+
          container.appendChild(card) 
 
 
@@ -102,4 +106,16 @@ function addLikes() {
 
 
   })
+}
+
+function addShareBtns( imageURL){
+  let fbHtml = ` <hr> <a href= "https://www.facebook.com/sharer.php?u=${imageURL}"  class="fa fa-facebook" target="blank" alt="share on facebook"></a> `
+  let twitterHtml = `<a href="https://twitter.com/share?url=${imageURL}" class="fa fa-twitter" target="blank" alt="share on twitter"></a>`  ;
+  let linkedinHtml = `<a href="https://www.linkedin.com/shareArticle?url=${imageURL}" class="fa fa-linkedin" target="blank" alt="share on linkedIn"></a> ` ;
+   
+  shareHtml = fbHtml + twitterHtml + linkedinHtml
+  
+  return shareHtml
+
+
 }
