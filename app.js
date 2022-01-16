@@ -63,12 +63,15 @@ function creatCard(images) {
 
        const mediaElm = createMediaElement( typeOfMedia ) ;
            //  picture.classList.add("card-img-top")
-             mediaElem = `${image.media_type} : ${image.title}`
+          //    mediaElem = `${image.media_type} : ${image.title}`
           mediaElm.src = image.url
+          mediaElm.setAttribute('tabIndex', '0')
+           
           card.appendChild(mediaElm) 
 
           const like = document.createElement("div")
           like.classList.add("like", "dislike")
+          like.setAttribute('tabIndex', '0')
  
           card.appendChild(like)
 
@@ -76,12 +79,13 @@ function creatCard(images) {
         const title = document.createElement("h5") ;
             title.classList.add("card-title")
               title.innerHTML= image.title +" : " + image.date
+              title.setAttribute('tabIndex', '0')
               cardBody.appendChild(title)
           
         const cardText =  document.createElement("p") ;
               cardText.classList.add("card-text")
               cardText.innerHTML = image.explanation 
-
+              cardText.setAttribute('tabIndex', '0') 
               cardBody.appendChild(cardText)
 
          card.appendChild(cardBody)
@@ -118,9 +122,9 @@ function addLikes() {
 }
 
 function addShareBtns( imageURL){
-  let fbHtml = ` <hr> <a href= "https://www.facebook.com/sharer.php?u=${imageURL}"  class="fa fa-facebook" target="blank" alt="share on facebook"></a> `
-  let twitterHtml = `<a href="https://twitter.com/share?url=${imageURL}" class="fa fa-twitter" target="blank" alt="share on twitter"></a>`  ;
-  let linkedinHtml = `<a href="https://www.linkedin.com/shareArticle?url=${imageURL}" class="fa fa-linkedin" target="blank" alt="share on linkedIn"></a> ` ;
+  let fbHtml = ` <hr> <a href= "https://www.facebook.com/sharer.php?u=${imageURL}"  class="fa fa-facebook" target="blank" alt="share on facebook" tabindex="0"></a> `
+  let twitterHtml = `<a href="https://twitter.com/share?url=${imageURL}" class="fa fa-twitter" target="blank" alt="share on twitter" tabindex="0"></a>`  ;
+  let linkedinHtml = `<a href="https://www.linkedin.com/shareArticle?url=${imageURL}" class="fa fa-linkedin" target="blank" alt="share on linkedIn" tabindex="0"></a> ` ;
    
   shareHtml = fbHtml + twitterHtml + linkedinHtml
   
