@@ -6,7 +6,7 @@ const API_KEY = config.NASA_API_KEY
 let nextImageBtn = document.getElementById("nextImageBtn") ;
 
  nextImageBtn.addEventListener("click", e => {
-     console.log("button clicked :"  + e.target)
+//     console.log("button clicked :"  + e.target)
      getImageData()
  })
 
@@ -18,7 +18,7 @@ async function getImageData() {
     try {
         let response = await fetch(`${URL}${API_KEY}&count=6`)
         let data = await response.json()
-        console.log('NASA APOD data', data)
+  //   console.log('NASA APOD data', data)
        displayImage(data)
 
       } catch (error) {
@@ -26,9 +26,6 @@ async function getImageData() {
       }
 }
 
-//console.log( ${API_KEY}  )
-
-// console.log( {config.NASA_API_KEY})
 
 // Display Image
 function displayImage(data) {
@@ -59,33 +56,33 @@ function creatCard(images) {
 
        let typeOfMedia = image.media_type === "video" ? "video" : "img"   
         
-       console.log("type of media : " + typeOfMedia )
+   //    console.log("type of media : " + typeOfMedia )
 
        const mediaElm = createMediaElement( typeOfMedia ) ;
-           //  picture.classList.add("card-img-top")
-          //    mediaElem = `${image.media_type} : ${image.title}`
+          mediaElm.alt = `${image.media_type} : ${image.title}`
           mediaElm.src = image.url
           mediaElm.setAttribute('tabIndex', '0')
            
           card.appendChild(mediaElm) 
 
-          const like = document.createElement("div")
+      const like = document.createElement("div")
           like.classList.add("like", "dislike")
           like.setAttribute('tabIndex', '0')
  
           card.appendChild(like)
 
-        const cardBody = document.createElement("div") ;
-        const title = document.createElement("h5") ;
+       const cardBody = document.createElement("div") ;
+       
+       const title = document.createElement("h5") ;
             title.classList.add("card-title")
               title.innerHTML= image.title +" : " + image.date
-              title.setAttribute('tabIndex', '0')
+              
               cardBody.appendChild(title)
           
         const cardText =  document.createElement("p") ;
               cardText.classList.add("card-text")
               cardText.innerHTML = image.explanation 
-              cardText.setAttribute('tabIndex', '0') 
+              
               cardBody.appendChild(cardText)
 
          card.appendChild(cardBody)
@@ -107,7 +104,7 @@ function creatCard(images) {
 
 //Add Like event listener
 function addLikes() {
-   console.log("Entered addLikes")
+//   console.log("Entered addLikes")
   const likes = document.querySelectorAll(".like") ;
   
     likes.forEach(like => {
@@ -139,6 +136,7 @@ function createMediaElement(typeOfMedia) {
     const videoElm = document.createElement( "iframe" ) ;
             videoElm.classList.add("embed-responsive-item")
             videoElm.allowFullscreen = true;
+            videoElm.setAttribute('tabIndex', '0')
           return  videoElm
 
    }else {
