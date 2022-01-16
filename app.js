@@ -16,7 +16,7 @@ let nextImageBtn = document.getElementById("nextImageBtn") ;
 // Get image  Data from nasa
 async function getImageData() {
     try {
-        let response = await fetch(`${URL}${API_KEY}&count=2`)
+        let response = await fetch(`${URL}${API_KEY}&count=5`)
         let data = await response.json()
         console.log('NASA APOD data', data)
        displayImage(data)
@@ -45,6 +45,9 @@ function creatCard(images) {
     
     const container = document.getElementById("container") ;
         //  container.classList.add("row row-cols-auto") ;
+        
+        //clear container
+        container.innerHTML= "" ;
 
     images.forEach( (image , index ) =>{
         
