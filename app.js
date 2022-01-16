@@ -45,9 +45,6 @@ function creatCard(images) {
     
     const container = document.getElementById("container") ;
         //  container.classList.add("row row-cols-auto") ;
-        
-        //clear container
-        container.innerHTML= "" ;
 
     images.forEach( (image , index ) =>{
         
@@ -112,9 +109,9 @@ function addLikes() {
 }
 
 function addShareBtns( imageURL){
-  let fbHtml = ` <hr> <a href= "https://www.facebook.com/sharer.php?u=${imageURL}"  class="fa fa-facebook" target="blank" alt="share on facebook"></a> `
+  let fbHtml = ` <hr> <strong> Sharing is caring :) </strong> <p>  <a href= "https://www.facebook.com/sharer.php?u=${imageURL}"  class="fa fa-facebook" target="blank" alt="share on facebook"></a> `
   let twitterHtml = `<a href="https://twitter.com/share?url=${imageURL}" class="fa fa-twitter" target="blank" alt="share on twitter"></a>`  ;
-  let linkedinHtml = `<a href="https://www.linkedin.com/shareArticle?url=${imageURL}" class="fa fa-linkedin" target="blank" alt="share on linkedIn"></a> ` ;
+  let linkedinHtml = `<a href="https://www.linkedin.com/shareArticle?url=${imageURL}" class="fa fa-linkedin" target="blank" alt="share on linkedIn"></a> </p>` ;
    
   shareHtml = fbHtml + twitterHtml + linkedinHtml
   
