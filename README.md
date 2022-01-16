@@ -2,6 +2,8 @@
 
 Spacestagram: Image-sharing from the final frontier
 
+## You can view the Demo at https://ifoi.github.io/Spacestagram/
+
 To test it .. you can clone this repo,
 and then in the root foolder of this app, (same folder that has app.js) create a config.js file.. with the following info .
 
