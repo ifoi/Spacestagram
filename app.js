@@ -122,7 +122,7 @@ function addLikes() {
 }
 
 function addShareBtns( imageURL){
-  let fbHtml = ` <hr> <a href= "https://www.facebook.com/sharer.php?u=${imageURL}"  class="fa fa-facebook" target="blank" alt="share on facebook" tabindex="0"></a> `
+  let fbHtml = ` <hr> <strong> Sharing is caring :) </strong> <p> <a href= "https://www.facebook.com/sharer.php?u=${imageURL}"  class="fa fa-facebook" target="blank" alt="share on facebook" tabindex="0"></a> `
   let twitterHtml = `<a href="https://twitter.com/share?url=${imageURL}" class="fa fa-twitter" target="blank" alt="share on twitter" tabindex="0"></a>`  ;
   let linkedinHtml = `<a href="https://www.linkedin.com/shareArticle?url=${imageURL}" class="fa fa-linkedin" target="blank" alt="share on linkedIn" tabindex="0"></a> ` ;
    
