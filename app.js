@@ -16,7 +16,7 @@ let nextImageBtn = document.getElementById("nextImageBtn") ;
 // Get image  Data from nasa
 async function getImageData() {
     try {
-        let response = await fetch(`${URL}${API_KEY}&count=5`)
+        let response = await fetch(`${URL}${API_KEY}&count=6`)
         let data = await response.json()
         console.log('NASA APOD data', data)
        displayImage(data)
