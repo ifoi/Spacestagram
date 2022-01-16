@@ -54,12 +54,18 @@ function creatCard(images) {
         const card = document.createElement("div") ;
            card.className += ("col-6 card border-primary mb-4")
           card.style.width = "18rem"
-             
-        const picture = document.createElement("img") ;
-             picture.classList.add("card-img-top")
-             picture.alt = `${image.media_type} : ${image.title}`
-          picture.src = image.url
-          card.appendChild(picture) 
+        
+         // create Media element 
+
+       let typeOfMedia = image.media_type === "video" ? "video" : "img"   
+        
+       console.log("type of media : " + typeOfMedia )
+
+       const mediaElm = createMediaElement( typeOfMedia ) ;
+           //  picture.classList.add("card-img-top")
+             mediaElem = `${image.media_type} : ${image.title}`
+          mediaElm.src = image.url
+          card.appendChild(mediaElm) 
 
           const like = document.createElement("div")
           like.classList.add("like", "dislike")
@@ -120,5 +126,24 @@ function addShareBtns( imageURL){
   
   return shareHtml
 
+}
 
+function createMediaElement(typeOfMedia) {
+  
+  if (typeOfMedia === "video") {
+
+    const videoElm = document.createElement( "iframe" ) ;
+            videoElm.classList.add("embed-responsive-item")
+            videoElm.allowFullscreen = true;
+          return  videoElm
+
+   }else {
+    const pictureElm = document.createElement( typeOfMedia ) ;
+    pictureElm.classList.add("card-img-top")
+    
+     return pictureElm
+
+   }
+
+ 
 }
