@@ -34,6 +34,8 @@ function displayImage(data) {
 //    card.alt = data.title ;
    creatCard(data)
    addLikes()
+   addFooter()
+
 } 
 
 //  builds out each Card component using bootstrap 
@@ -99,9 +101,6 @@ function creatCard(images) {
 
 }
 
-
-//parse image objects
-
 //Add Like event listener
 function addLikes() {
 //   console.log("Entered addLikes")
@@ -146,6 +145,20 @@ function createMediaElement(typeOfMedia) {
      return pictureElm
 
    }
-
  
+}
+
+function   addFooter() {
+  const footerElm = document.getElementById("footer") ;
+    footerElm.innerHTML = "" ;
+    const footerImageBtn = document.createElement( "button" ) 
+    footerImageBtn.classList.add("btn", "btn-primary")
+    footerImageBtn.innerText = "Get next set of Images"
+    footerImageBtn.addEventListener("click", e => {
+           getImageData() ;
+           document.documentElement.scrollTop = 0; // scroll window back to top 
+       })
+ 
+     footerElm.appendChild(footerImageBtn)  
+
 }
