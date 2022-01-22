@@ -12,3 +12,5 @@ and then in the root foolder of this app, (same folder that has app.js) create a
 `const config = { NASA_API_KEY: "DEMO_KEY" }`
 
 For more on the API key .. go to https://api.nasa.gov -
+
+Then open index.html file with your web browser ..
